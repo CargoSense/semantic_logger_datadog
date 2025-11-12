@@ -1,0 +1,5 @@
+*.gem
+/.ruby-lsp/
+/coverage/
+/pkg/
+Gemfile.local

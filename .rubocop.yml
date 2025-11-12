@@ -1,0 +1,6 @@
+plugins:
+  - rubocop-cargosense
+  - rubocop-packaging
+
+AllCops:
+  TargetRubyVersion: 3.1
