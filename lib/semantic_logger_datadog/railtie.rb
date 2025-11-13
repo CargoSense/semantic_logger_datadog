@@ -14,6 +14,9 @@ module SemanticLoggerDatadog
       # @see https://logger.rocketjob.io/rails.html#output-format
       app.config.rails_semantic_logger.format = SemanticLoggerDatadog::Formatters::Json.new
 
+      # Set application name.
+      app.config.semantic_logger.application = Rails.application.name
+
       # Set backtrace level to avoid memory leaks due to high object allocation.
       #
       # @see https://logger.rocketjob.io/rails.html#include-the-file-name-and-line-number-in-the-source-code-where-the-message-originated
