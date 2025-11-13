@@ -64,6 +64,14 @@ module SemanticLoggerDatadog
         }
       end
 
+      # Don't log process ID.
+      #
+      # @see https://logger.rocketjob.io/customize.html#example-do-not-log-the-process-id
+      #
+      # @return [nil]
+      def pid
+      end
+
       # @return [String]
       def request_id
         hash[:request_id] = log.named_tags.delete(:request_id)
