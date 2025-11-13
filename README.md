@@ -63,7 +63,7 @@ end
 
 ### Adding custom controller action data
 
-Optionally configure user-specific data in `app/controllers/application_controller.rb` by adding [a `append_info_to_payload` method](https://logger.rocketjob.io/rails.html#adding-custom-data-to-the-rails-completed-log-message):
+Optionally configure user-specific data in `app/controllers/application_controller.rb` by adding [an `append_info_to_payload` method](https://logger.rocketjob.io/rails.html#adding-custom-data-to-the-rails-completed-log-message):
 
 ```ruby
 def append_info_to_payload(payload)
