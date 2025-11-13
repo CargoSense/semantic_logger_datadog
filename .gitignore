@@ -1,4 +1,6 @@
+.irb_history
 *.gem
+*.log
 /.ruby-lsp/
 /coverage/
 /pkg/
