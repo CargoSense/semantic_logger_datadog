@@ -9,11 +9,6 @@ end
 module SemanticLoggerDatadog
   class Railtie < Rails::Railtie
     initializer "semantic_logger_datadog.configure_rails_initialization" do |app|
-      # Set log output format.
-      #
-      # @see https://logger.rocketjob.io/rails.html#output-format
-      app.config.rails_semantic_logger.format = SemanticLoggerDatadog::Formatters::Json.new
-
       # Set application name.
       app.config.semantic_logger.application = Rails.application.name
 
@@ -22,13 +17,18 @@ module SemanticLoggerDatadog
       # @see https://logger.rocketjob.io/rails.html#include-the-file-name-and-line-number-in-the-source-code-where-the-message-originated
       app.config.semantic_logger.backtrace_level = :error if Rails.env.production?
 
+      # Set log output format.
+      #
+      # @see https://logger.rocketjob.io/rails.html#output-format
+      app.config.rails_semantic_logger.format = SemanticLoggerDatadog::Formatters::Json.new
+
       # Log to standard output when +RAILS_LOG_TO_STDOUT+ is configured.
       #
       # @see https://logger.rocketjob.io/rails.html#log-to-standard-out
       if ENV["RAILS_LOG_TO_STDOUT"].present?
         $stdout.sync = true
         app.config.rails_semantic_logger.add_file_appender = false
-        app.config.semantic_logger.add_appender(formatter: config.rails_semantic_logger.format, io: $stdout)
+        app.config.semantic_logger.add_appender(formatter: app.config.rails_semantic_logger.format, io: $stdout)
       end
     end
   end
