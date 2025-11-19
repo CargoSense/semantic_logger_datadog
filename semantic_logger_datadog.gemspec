@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 3.1"
 
   spec.name          = "semantic_logger_datadog"
-  spec.version       = "0.1.0"
+  spec.version       = "0.2.0"
   spec.authors       = ["CargoSense"]
   spec.email         = ["rubygems@cargosense.com"]
 
