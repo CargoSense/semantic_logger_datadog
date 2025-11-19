@@ -6,6 +6,8 @@ rescue LoadError => e
   raise %(semantic_logger_datadog: Install the rails_semantic_logger gem to continue. (#{e}))
 end
 
+require_relative "middleware"
+
 module SemanticLoggerDatadog
   class Railtie < Rails::Railtie
     initializer "semantic_logger_datadog.configure_rails_initialization" do |app|
@@ -30,6 +32,8 @@ module SemanticLoggerDatadog
         app.config.rails_semantic_logger.add_file_appender = false
         app.config.semantic_logger.add_appender(formatter: app.config.rails_semantic_logger.format, io: $stdout)
       end
+
+      app.middleware.insert_before Rails::Rack::Logger, SemanticLoggerDatadog::Middleware
     end
   end
 end
