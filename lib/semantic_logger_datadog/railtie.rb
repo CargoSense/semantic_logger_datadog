@@ -33,7 +33,7 @@ module SemanticLoggerDatadog
         app.config.semantic_logger.add_appender(formatter: app.config.rails_semantic_logger.format, io: $stdout)
       end
 
-      app.middleware.insert_before Rails::Rack::Logger, SemanticLoggerDatadog::Middleware
+      app.middleware.insert_before RailsSemanticLogger::Rack::Logger, SemanticLoggerDatadog::Middleware
     end
   end
 end
