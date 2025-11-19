@@ -43,23 +43,7 @@ gem "rails_semantic_logger"
 gem "semantic_logger_datadog"
 ```
 
-Configure named tags in `config/application.rb`:
-
-```ruby
-module App
-  class Application < Rails::Application
-    # Your app's existing configuration goes here…
-
-    # Configure named tags to add to every log message.
-    config.log_tags = {
-      remote_ip: :remote_ip,
-      request_id: :request_id,
-      url: ->(request) { request.original_url },
-      useragent: ->(request) { request.headers["user-agent"] },
-    }
-  end
-end
-```
+The included middleware configures relevant log tags using values provided by [Action Dispatch](https://api.rubyonrails.org/classes/ActionDispatch.html).
 
 ### Adding custom controller action data
 
