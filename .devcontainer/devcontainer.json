@@ -8,7 +8,7 @@
     "ghcr.io/devcontainers/features/ruby:1": {
       "version": "3.4.7"
     },
-    "ghcr.io/CargoSense/devcontainer-features/bundler:1": {}
+    "ghcr.io/CargoSense/devcontainer-features/bundler:2": {}
   },
 
   // Features to add to the dev container. More info: https://containers.dev/features.
