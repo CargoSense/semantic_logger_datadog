@@ -1,0 +1,9 @@
+{
+  "features": {
+    "ghcr.io/CargoSense/devcontainer-features/bundler:2": {
+      "version": "2.0.0",
+      "resolved": "ghcr.io/cargosense/devcontainer-features/bundler@sha256:25c05a9f2ff055cf2b8e883dda6ee33d30f6593458f7eef4c31f72c9fcbcbaec",
+      "integrity": "sha256:25c05a9f2ff055cf2b8e883dda6ee33d30f6593458f7eef4c31f72c9fcbcbaec"
+    }
+  }
+}
