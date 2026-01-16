@@ -1,18 +1,14 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/debian
+// README at: https://github.com/devcontainers/templates/tree/main/src/ruby
 {
   "name": "semantic_logger_datadog",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:trixie",
-  "features": {
-    "ghcr.io/devcontainers/features/ruby:1": {
-      "version": "3.4.7"
-    },
-    "ghcr.io/CargoSense/devcontainer-features/bundler:2": {}
-  },
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.4-trixie",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
+  "features": {
+    "ghcr.io/CargoSense/devcontainer-features/bundler:2": {}
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
@@ -20,20 +16,20 @@
   // An array of Docker CLI arguments that should be used when running the container.
   "runArgs": ["--name", "semantic_logger_datadog"],
 
-  // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": ".devcontainer/setup.sh",
-
-  // Specify the command any tool should wait for before connecting.
-  "waitFor": "postCreateCommand",
+  // Use 'updateContentCommand' to run commands when creating the container and rerun when the
+  // workspace content was updated while creating the container.
+  "updateContentCommand": "bundle install",
 
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
-        "jasonnutter.vscode-codeowners"
+        "editorconfig.editorconfig",
+        "jasonnutter.vscode-codeowners",
+        "Shopify.ruby-lsp"
       ],
       "settings": {
-        "rubyLsp.rubyVersionManager.identifier": "rvm"
+        "rubyLsp.rubyVersionManager.identifier": "none"
       }
     }
   }
