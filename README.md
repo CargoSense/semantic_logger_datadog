@@ -22,7 +22,7 @@ require "semantic_logger_datadog"
 # Set the global default log level.
 SemanticLogger.default_level = :trace
 
-# Log to a file, and use the Datadog formatter.
+# Log to a file and use the Datadog formatter.
 SemanticLogger.add_appender(file_name: "development.log", formatter: SemanticLoggerDatadog::Formatters::Json.new)
 
 # Create an instance of a logger and add the class name to every log message.
