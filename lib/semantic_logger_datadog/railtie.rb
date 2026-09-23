@@ -19,18 +19,14 @@ module SemanticLoggerDatadog
       # @see https://logger.reidmorrison.com/rails.html#source-file-name-and-line-number
       app.config.semantic_logger.backtrace_level = :error if Rails.env.production?
 
-      # Set log output format.
-      #
-      # @see https://logger.reidmorrison.com/rails.html#output-formats
-      app.config.rails_semantic_logger.format = SemanticLoggerDatadog::Formatters::Json.new
-
       # Log to standard output when +RAILS_LOG_TO_STDOUT+ is configured.
       #
+      # @see https://logger.reidmorrison.com/rails.html#output-formats
       # @see https://logger.reidmorrison.com/rails.html#production-on-a-container-platform-docker-kubernetes-heroku
       if ENV["RAILS_LOG_TO_STDOUT"].present?
-        $stdout.sync = true
-        app.config.rails_semantic_logger.add_file_appender = false
-        app.config.semantic_logger.add_appender(formatter: app.config.rails_semantic_logger.format, io: $stdout)
+        app.config.rails_semantic_logger.appenders do |appenders|
+          appenders.add(formatter: SemanticLoggerDatadog::Formatters::Json.new, io: $stdout)
+        end
       end
 
       app.middleware.insert_before RailsSemanticLogger::Rack::Logger, SemanticLoggerDatadog::Middleware
