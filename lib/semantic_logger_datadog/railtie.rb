@@ -16,7 +16,7 @@ module SemanticLoggerDatadog
     # @see https://logger.reidmorrison.com/rails.html#production-on-a-container-platform-docker-kubernetes-heroku
     if ENV["RAILS_LOG_TO_STDOUT"].present?
       config.rails_semantic_logger.appenders do |appenders|
-        appenders.add_server(formatter: SemanticLoggerDatadog::Formatters::Json.new)
+        appenders.add(formatter: SemanticLoggerDatadog::Formatters::Json.new, io: $stdout)
       end
     end
 
