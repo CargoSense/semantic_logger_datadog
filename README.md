@@ -1,6 +1,6 @@
 # semantic_logger_datadog
 
-**[Semantic Logger](https://logger.rocketjob.io) formatter for submitting JSON logs to [Datadog](https://www.datadoghq.com).**
+**[Semantic Logger](https://logger.reidmorrison.com) formatter for submitting JSON logs to [Datadog](https://www.datadoghq.com).**
 
 [![Gem](https://img.shields.io/gem/v/semantic_logger_datadog.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/semantic_logger_datadog)
 [![Downloads](https://img.shields.io/gem/dt/semantic_logger_datadog.svg?logo=rubygems&style=for-the-badge)](https://rubygems.org/gems/semantic_logger_datadog)
@@ -32,7 +32,7 @@ logger = SemanticLogger["MyClass"]
 logger.info "Hello, world!"
 ```
 
-Refer to [Semantic Logger's documentation](https://logger.rocketjob.io/customize.html) for more customization options.
+Refer to [Semantic Logger's documentation](https://logger.reidmorrison.com/config.html) for more configuration options.
 
 ## Configuring Ruby on Rails
 
@@ -47,7 +47,7 @@ The included middleware configures relevant log tags using values provided by [A
 
 ### Adding custom controller action data
 
-Optionally configure user-specific data in `app/controllers/application_controller.rb` by adding [an `append_info_to_payload` method](https://logger.rocketjob.io/rails.html#adding-custom-data-to-the-rails-completed-log-message):
+Optionally configure user-specific data in `app/controllers/application_controller.rb` by adding [an `append_info_to_payload` method](https://logger.reidmorrison.com/rails.html#add-custom-data-to-the-completed-message):
 
 ```ruby
 def append_info_to_payload(payload)

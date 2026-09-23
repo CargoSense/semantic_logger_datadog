@@ -66,7 +66,7 @@ module SemanticLoggerDatadog
 
       # Don't log process ID.
       #
-      # @see https://logger.rocketjob.io/customize.html#example-do-not-log-the-process-id
+      # @see https://logger.reidmorrison.com/config.html#:~:text=A%20common%20request%20is%20to%20leave%20out%20the%20process%20id
       #
       # @return [nil]
       def pid
