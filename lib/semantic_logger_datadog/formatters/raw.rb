@@ -3,6 +3,8 @@
 module SemanticLoggerDatadog
   module Formatters
     class Raw < SemanticLogger::Formatters::Raw
+      # Returns log messages in Hash format.
+      #
       # @return [Hash]
       def call(*)
         super
